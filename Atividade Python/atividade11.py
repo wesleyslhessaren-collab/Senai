@@ -1,23 +1,27 @@
-# while continuar (continuar = True)
-#if
-#else
-#elif
-#for
-continuar = True
-while continuar:
-    print("Digite um número: ")
-    numero = int(input())
-    if numero > 0:
-        print("O número é positivo")
-    elif numero < 0:
-        print("O número é negativo")
-    else:
-        print("O número é zero")
-    print("Deseja continuar? (s/n)")
-    resposta = input()
-    if resposta == "n":
-        continuar = False
-print("Programa encerrado")
+estoque = {}
+print ("bem vindo ao sistema de gestão de estoque desenvolvido por wesley cavali slhessarenko")
+while True:
+    operacao = input ("deseja registrar a entrada e saída de produtos? (digite 'entrada' ou 'saída') ou 'sair'").lower() 
+
+    
+    if operacao not in ['entrada', 'saída', 'sair']:
+        print("operação inválida.")
+        continue
+
+    if operacao == 'sair':
+        break 
+    produto = input("Digite o nome do produto: ").strip()
+    qtd = int(input("Digite a quantidade: "))
+
+    if operacao == 'entrada':
+        estoque[produto] = estoque.get(produto, 0) + qtd
+    elif operacao == 'saída':
+        if estoque.get(produto, 0) >= qtd:
+            estoque[produto] -= qtd
+        else:
+            print("Erro:produto inexistente ou estoque insuficiente.")
 
 
-
+print("\n ---Estoque Final ---")
+for p, q in estoque.items():
+    print(f"{p}: {q} unidades") 
