@@ -9,8 +9,8 @@ while True:
         continue
 
     if operacao == 'sair':
-        break 
-    produto = input("Digite o nome do produto: ").strip()
+        break # quebra a ação de repetição
+    produto = input("Digite o nome do produto: ").strip() # tem a função de limpar o bloco de código ()
     qtd = int(input("Digite a quantidade: "))
 
     if operacao == 'entrada':
